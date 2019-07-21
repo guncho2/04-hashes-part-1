@@ -1,17 +1,15 @@
+
+require_relative 'hash_item'
+
 class HashClass
 
   def initialize(size)
     @items = Array.new(size)
   end
 
-  
-
   def []=(key, value)
-
     item = HashItem.new(key, value)
-
     i = index(key, size)
-
     if @items[i].nil?
       @items[i] = item
     elsif @items[i].key != item.key
@@ -21,7 +19,6 @@ class HashClass
       self.resize
       @items[index(item.key, size)] = value
     end
-
   end
 
   def [](key)
@@ -29,12 +26,9 @@ class HashClass
   end
 
   def resize
-
-    hold_items = @items.compact
+    old_items = @items.compact
     @items = Array.new(self.size * 2) 
-    hold_items.each { |item| self[item.key] = item.value }  
-    print
-
+    old_items.each { |item| self[item.key] = item.value }
   end
 
   # Returns a unique, deterministically reproducible index into an array
@@ -42,15 +36,20 @@ class HashClass
   # a starting point.
   def index(key, size)
     key.sum % size
-
   end
 
   # Simple method to return the number of items in the hash
   def size
     @items.length
-
   end
 
+  def print
+    i = size
+    while i >= 0
+      if !@items[i].nil? 
+        puts "lotr_runtimes[\"#{@items[i].key}\"] = \"#{@items[i].value}\" - Hash: #{i}"
+      end
+      i = i - 1
+    end
+  end
 end
-
-
