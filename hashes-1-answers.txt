@@ -1,1 +1,27 @@
-#okokokokokok
+HASH
+
+
+ size = 32
+ key.sum % size 
+true_index = key.sum % size
+ self.items = Array.new(size)
+ self.items[true_index] = value
+ ====
+ def initialize(size) 
+self.size = 32
+ self.items = Array.new(size) 
+end 
+
+ "1942".sum
+ 2857274810 % 5 
+
+ Assume “1944” generates a hash code of 3759193923. Modding this code by k (5), if there is a collision example 5 go to 10 double 
+
+ 2857274820 % 5
+ index = key.sum % k
+ if(self.items[index] !== nil) 
+==== 
+def resize 
+holder = self.items.compact
+ self.items = Array.new(self.size * 2)
+ hold.items.each { |item| self[item.key] = item.value }
